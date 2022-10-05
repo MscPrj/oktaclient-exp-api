@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<http:request-config name="adobe-process-httpRequest" doc:name="HTTP Request configuration" doc:id="d475c927-fdc3-4313-ad18-5746c5586358" basePath="${adobe-process-api.base-path}" responseTimeout="${adobe-process-api.response-timeout}" >
+		<http:request-connection host="${adobe-process-api.host}" connectionIdleTimeout="${adobe-process-api.connection-idle-timeout}" port="${adobe-process-api.port}">
+			<reconnection >
+				<reconnect frequency="${adobe-process-api.http-frequency}" count="${adobe-process-api.http-reconnection-attempts}" />
+			</reconnection>
+		</http:request-connection>
+	</http:request-config>
+	</mule>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="servicemappingFlow" doc:id="2319284d-5e55-4626-8140-67871dd04434" >
+		<logger level="INFO" doc:name="Logger" doc:id="26a1f9ea-d3b5-42a6-9ab2-4618bafe1884" message="#[payload]" />
+		<until-successful maxRetries="5" doc:name="Until Successful" doc:id="f803eb4e-8369-414d-8e31-329076f038d7" >
+			<try doc:name="Try" doc:id="bd95a860-4327-4fa4-ba25-4ac7a754b17a" >
+				<http:request method="POST" doc:name="Request" doc:id="033c7915-c101-46aa-b1c3-e06675599165" config-ref="adobe-process-httpRequest" path="${adobe-process-api.path}/ServiceMappingRequest" />
+				<error-handler >
+					<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="ba437538-74bd-411c-ba08-d0e889816625" type="HTTP:CONNECTIVITY, HTTP:TIMEOUT" >
+						<logger level="INFO" doc:name="Logger" doc:id="c9adee9c-125a-465e-86d1-bcdfc996737d" message='#[attributes.statusCode default "909" ++ "Status code"]' />
+					</on-error-propagate>
+					<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="9d4bf3e1-6dbd-4763-be86-969ecad9da48" type="HTTP:BAD_GATEWAY, HTTP:BAD_REQUEST, HTTP:CLIENT_SECURITY, HTTP:FORBIDDEN, HTTP:INTERNAL_SERVER_ERROR, HTTP:METHOD_NOT_ALLOWED, HTTP:NOT_ACCEPTABLE, HTTP:NOT_FOUND, HTTP:PARSING, HTTP:RETRY_EXHAUSTED, HTTP:SECURITY, HTTP:SERVICE_UNAVAILABLE, HTTP:TOO_MANY_REQUESTS, HTTP:UNAUTHORIZED, HTTP:UNSUPPORTED_MEDIA_TYPE, EXPRESSION, STREAM_MAXIMUM_SIZE_EXCEEDED" >
+						<logger level="INFO" doc:name="Logger" doc:id="b127db75-f1af-4d1b-96fd-27c33ce6a346" message='#[attributes.statusCode default "903" ++ "Status code"]' />
+					</on-error-continue>
+				</error-handler>
+			</try>
+		</until-successful>
+		<ee:transform doc:name="Transform Message" doc:id="4586ed56-3ea7-4244-a60d-3d88f3d7be83">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+Response: payload.Response map (payload01,indexOfPayload01) ->
+{
+  "ExternalKey": payload01.ExternalKey,
+  "ResponseMessage": payload01.ResponseMessage,
+  "ResponseCode": (payload01.ResponseMessage splitBy (" | "))[0] default payload01.ResponseCode,
+  "X_Correlation_id": correlationId,
+  "TimeStamp": payload01.TimeStamp
+}]]></ee:set-payload>
+			</ee:message>
+			<ee:variables>
+				<ee:set-variable variableName="httpStatus"><![CDATA[%dw 2.0
+output application/json
+fun check_httpstatus (v_response_type) =
+v_response_type match {
+   case v_response_type if (v_response_type == "error" or v_response_type == "500") -> "422"
+   case v_response_type if (v_response_type == "success") -> "200"
+   case v_response_type if (v_response_type == "warning") -> "200"
+   else -> "500"
+   }
+   
+fun check_httpstatus_array (v_response_type) =
+v_response_type match {
+   case v_response_type if (!(isEmpty(((v_response_type) filter ($.ResponseMessage contains "error")).ResponseMessage)) or !(isEmpty(((v_response_type) filter ($.ResponseCode contains "500")).ResponseCode))) -> "422"
+   case v_response_type if !(isEmpty(((v_response_type) filter ($.ResponseMessage contains "success")).ResponseMessage)) -> "200"
+   case v_response_type if !(isEmpty(((v_response_type) filter ($.ResponseMessage contains "warning")).ResponseMessage)) -> "200"
+   else -> "500"
+   }   
+---
+//check_httpstatus
+//((payload.Response.ResponseMessage splitBy (" | "))[2] default payload.Response.ResponseCode)
+//check_httpstatus_array
+//isEmpty(((payload.Response) filter ($.ResponseMessage contains "error")).ResponseMessage)
+//(payload.Response)
+check_httpstatus_array
+(payload.Response)]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="152a282d-1b4d-45b4-b208-30a7e022e0f4" message="#[payload]"/>
+	</flow>
+	</mule>
