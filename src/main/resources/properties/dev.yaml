@@ -15,3 +15,8 @@ adobe-process-api:
 
 api:
   id: ""
+  
+cert:
+  alias: "alias-cert-oktacli-dev"
+  keypassword: "mulesoft"
+  password: "mulesoft"

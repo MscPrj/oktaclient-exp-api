@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="MULE_LIB/org.mule.connectors/mule-sockets-connector/1.2.2"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/oktaclient-exp-api/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/catalyst-library/1.0.72"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/bookingnotification/1.0.5"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/responses-datatype/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/servicemapping-datatype/1.0.4"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/lead-datatype/1.0.0"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/agency-datatype/1.0.2"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/bookingcommunication/1.0.0"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/berth-datatype/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/response-responses-datatype/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/personaccount-datatype/1.0.13"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/webuser-datatype/1.0.0"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/case-datatype/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/okta-group-user-datatype/1.0.0"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/okta-user-profile-datatype/1.0.0"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/response-datatype/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/country-datatype/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/account-datatype/1.0.16"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/Contact-datatype/1.0.8"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/port-datatype/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/reservation-datatype/1.0.19"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/ship-datatype/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/association-datatype/1.0.2"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/bankaccount/1.0.4"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/itinerary-datatype/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/c_root-pop-response-datatype/1.0.1"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/reservation-group-datatype/1.0.6"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/okta-user-datatype/1.0.5"/>
+	<classpathentry kind="con" path="org.mule.tooling.API_SPEC_LIB/37d089bb-43a5-4402-bd56-e9c1cb52427a/travel-with-datatype/1.0.3"/>
+	<classpathentry kind="con" path="org.mule.tooling.MULE_PROJECT_LIB"/>
+	<classpathentry kind="con" path="MULE_LIB/org.mule.modules/mule-apikit-module/1.5.11"/>
+	<classpathentry kind="con" path="MULE_LIB/org.mule.connectors/mule-http-connector/1.6.0"/>
+	<classpathentry exported="true" kind="con" path="MULE_RUNTIME/org.mule.tooling.server.4.4.0.ee"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src/main/mule"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java"/>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/resources"/>
+	<classpathentry kind="src" path="src/test/munit"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

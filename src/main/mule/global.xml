@@ -12,4 +12,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			</reconnection>
 		</http:request-connection>
 	</http:request-config>
+	<global-property doc:name="Global Property" doc:id="391394d8-80cd-4a20-98ae-d6f36dc7a511" name="env" value="dev" />
+	<configuration-properties doc:name="Configuration properties" doc:id="0066c9cb-8491-484c-a5fc-6e6fbe958ea0" file="properties/${env}.yaml" />
 	</mule>
