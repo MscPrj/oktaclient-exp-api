@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+<mule xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
 	<http:request-config name="adobe-process-httpRequest" doc:name="HTTP Request configuration" doc:id="d475c927-fdc3-4313-ad18-5746c5586358" basePath="${adobe-process-api.base-path}" responseTimeout="${adobe-process-api.response-timeout}" >
 		<http:request-connection host="${adobe-process-api.host}" connectionIdleTimeout="${adobe-process-api.connection-idle-timeout}" port="${adobe-process-api.port}">
 			<reconnection >
-				<reconnect frequency="${adobe-process-api.http-frequency}" count="${adobe-process-api.http-reconnection-attempts}" />
+				<reconnect/>
 			</reconnection>
 		</http:request-connection>
 	</http:request-config>
 	<global-property doc:name="Global Property" doc:id="391394d8-80cd-4a20-98ae-d6f36dc7a511" name="env" value="dev" />
 	<configuration-properties doc:name="Configuration properties" doc:id="0066c9cb-8491-484c-a5fc-6e6fbe958ea0" file="properties/${env}.yaml" />
+	<api-gateway:autodiscovery apiId="${api.id}" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="4d9532ab-a0e3-42ed-8c6b-1d0fcb37641e" flowRef="oktaclient-exp-api-main" />
 	</mule>

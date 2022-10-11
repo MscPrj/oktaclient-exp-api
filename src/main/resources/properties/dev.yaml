@@ -11,10 +11,10 @@ adobe-process-api:
   connection-idle-timeout: "40000"
   http-reconnection-attempts: "2"
   #Replace with respective application hostname
-  host: "mule-worker-adobe-process-api.de-c1.eu1.cloudhub.io"
+  host: "mule-worker-internal-adobe-process-api.de-c1.eu1.cloudhub.io"
 
 api:
-  id: ""
+  id: "1495527"
   
 cert:
   alias: "alias-cert-oktacli-dev"
