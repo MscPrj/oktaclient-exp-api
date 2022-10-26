@@ -14,7 +14,7 @@ adobe-process-api:
   host: "mule-worker-internal-adobe-process-api.de-c1.eu1.cloudhub.io"
 
 api:
-  id: "1495527"
+  id: "1376546"
   
 cert:
   alias: "alias-cert-oktacli-dev"
