@@ -129,9 +129,6 @@ output application/json
         </error-handler>
     </flow>
     <flow name="post:\ActivationLinkCompleted:application\json:oktaclient-exp-api-config">
-        <flow-ref doc:name="Flow Reference" doc:id="2f8f80e8-f8b8-41e8-8211-b7c88e53e9e3" name="servicemappingFlow" />
-		<set-variable value="" doc:name="Set Variable" doc:id="a4143148-1349-4b6e-9f7a-a334fbc05364" variableName="env" />
-		<logger level="INFO" doc:name="Logger" doc:id="f3ab37bd-4a5e-4ef9-b0da-1177cb84f0c2" />
-		<logger level="INFO" doc:name="Logger" doc:id="2f7a2c24-e13f-419a-b2b1-89deaf63db64" />
+        <flow-ref doc:name="ServiceMapping" doc:id="2f8f80e8-f8b8-41e8-8211-b7c88e53e9e3" name="servicemappingFlow" />
     </flow>
 </mule>
