@@ -1,5 +1,8 @@
-http:
-  port: "8081"
+https:
+  port: "8082"
+  
+api:
+  id: "1376546"
 
 adobe-process-api:  
   http-frequency: "5000"
@@ -10,12 +13,8 @@ adobe-process-api:
   path: "/api"
   connection-idle-timeout: "40000"
   http-reconnection-attempts: "2"
-  #Replace with respective application hostname
   host: "mule-worker-internal-adobe-process-api.de-c1.eu1.cloudhub.io"
 
-api:
-  id: "1376546"
-  
 cert:
   alias: "alias-cert-oktacli-dev"
   keypassword: "mulesoft"

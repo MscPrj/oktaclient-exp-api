@@ -1,0 +1,21 @@
+https:
+  port: "8082"
+  
+api:
+  id: ""
+
+adobe-process-api:  
+  http-frequency: "5000"
+  content-type: "application/json"
+  base-path: "/"
+  port: "8091"
+  response-timeout: "40000"
+  path: "/api"
+  connection-idle-timeout: "40000"
+  http-reconnection-attempts: "2"
+  host: "mule-worker-internal-adobe-process-api-uat.de-c1.eu1.cloudhub.io"
+
+cert:
+  alias: "alias-cert-oktacli-uat"
+  keypassword: "mulesoft"
+  password: "mulesoft"
